@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Random Guess</title>
+    <script>
+        const array = [];
+        function randomArrayIndex() {
+            const input = document.getElementById('inputField').value;
+            array.push(input);
+            //const output = array;
+            document.getElementById('outputField').innerHTML = array.toString();
+
+            for(let i=0; i<input.length;i++){
+                array.push(input.value);
+            } 
+        }
+        function RandomGuess(){
+            document.getElementById('outputRandomField').innerHTML = array[Math.floor(Math.random() * array.length)];
+        }
+
+    </script>
+</head>
+<body>
+    <h1>Random Array Index</h1>
+    <p>Enter your input:</p>
+    <input type="text" id="inputField">
+    <button onclick="randomArrayIndex()">Generate Random Array Index</button>
+    <p id="outputField"></p>
+    <button onclick="RandomGuess()">Zufalls ausgabe</button>
+    <p id="outputRandomField"></p>
+</body>
+</html>
