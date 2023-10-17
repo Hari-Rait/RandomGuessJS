@@ -1,32 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="stylesheet.css">
     <title>Random Guess</title>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     <script>
+        // Arrray in dem die Guesses gespeichert werden
         const array = [];
+
+        // Der Input wird hier in eine Variable gespeichert und in den Array gepucht und dann wird der Array ausgegeben
         function randomArrayIndex() {
             const input = document.getElementById('inputField').value;
             array.push(input);
-            //const output = array;
-            document.getElementById('outputField').innerHTML = array.toString();
+            document.getElementById('outputField').innerHTML = "Guesses:<br>" + array.join(', ');
 
-            for(let i=0; i<input.length;i++){
-                array.push(input.value);
-            } 
+            inputField.value = '';
         }
+        // Die Funktion gibt ein Zufällliges Element aus dem Array aus
         function RandomGuess(){
             document.getElementById('outputRandomField').innerHTML = array[Math.floor(Math.random() * array.length)];
         }
 
+        function removeGuess(todo) {array.value = array.value.filter((t) => t !== todo)}
+        
     </script>
 </head>
+
 <body>
     <h1>Random Array Index</h1>
     <p>Enter your input:</p>
-    <input type="text" id="inputField">
-    <button onclick="randomArrayIndex()">Generate Random Array Index</button>
+    <input type="text" id="inputField" placeholder="Gib bitte ein Guess ein" class="input">
+    <button class="btn" onclick="randomArrayIndex()">Hinzufügen</button>
+    
     <p id="outputField"></p>
-    <button onclick="RandomGuess()">Zufalls ausgabe</button>
+    <button @click="removeGuess(todo)">X</button>
+    
+    <button class="button" onclick="RandomGuess()">Zufalls ausgabe</button>
     <p id="outputRandomField"></p>
 </body>
 </html>
+
