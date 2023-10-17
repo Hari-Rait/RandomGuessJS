@@ -21,22 +21,24 @@
             document.getElementById('outputRandomField').innerHTML = array[Math.floor(Math.random() * array.length)];
         }
 
-        function removeGuess(todo) {array.value = array.value.filter((t) => t !== todo)}
+        function removeGuess(todo) {
+            array.value = array.value.filter((t) => t !== todo)
+        }
         
     </script>
 </head>
 
 <body>
-    <h1>Random Array Index</h1>
-    <p>Enter your input:</p>
+    <div class="container">
+    <h1>Enter your input:</h1>
     <input type="text" id="inputField" placeholder="Gib bitte ein Guess ein" class="input">
     <button class="btn" onclick="randomArrayIndex()">Hinzufügen</button>
     
     <p id="outputField"></p>
-    <button @click="removeGuess(todo)">X</button>
-    
+    <!-- <button @click="removeGuess(todo)">X</button> -->
     <button class="button" onclick="RandomGuess()">Zufalls ausgabe</button>
     <p id="outputRandomField"></p>
+    </div>
 </body>
 </html>
 
